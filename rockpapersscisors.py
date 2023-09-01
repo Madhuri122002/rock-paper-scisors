@@ -9,12 +9,18 @@ def compare(choice,n):
   str=check_combination(choice,n)
   if str=='user wins':
     return 'you won'
-  else:
+  elif str=='computer wins':
     return 'you lost'
+  else:
+      return 'tie'
 
 def check_combination(choice,n):
-  if choice==n:
-    return "tie"
+  if choice==1 and n==1:
+        return "tie"
+  elif choice==2 and n==2:
+        return "tie"
+  elif choice==3 and n==3:
+        return "tie"        
   elif choice==1 and n==2:
     return "computer wins"
   elif choice==1 and n==3:
@@ -28,31 +34,18 @@ def check_combination(choice,n):
   elif choice==3 and n==2:
     return 'user wins'
 
-print("1.Rock")
-print("2.Paper")
-print("3.Scisors")
-choice=int(input("select your option:"))
-n=assign_rand([1,2,3])
-print('your choice:',choice)
-print("compute's choice:",n)
-status=compare(choice,n)
-print(status)
-
-
-
-
-
-
-
-
-
-
-
-user_points=0
-comp_points=0
-for i in range(3):
-  loop(user_points,comp_points)
-if user_points>comp_points:
-    print("congradulations!! you won")
-else:
-    print("you lost....try again")
+flag=1
+while flag:
+    print("1.Rock")
+    print("2.Paper")
+    print("3.Scisors")
+    print("4.exit")
+    choice=int(input("select your option:"))
+    if choice==4:
+        flag=0
+    else:
+        n=assign_rand(1,2,3)
+        print('your choice:',choice)
+        print("compute's choice:",n)
+        status=compare(choice,n)
+        print(status)
